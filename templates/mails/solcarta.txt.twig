@@ -1,0 +1,20 @@
+Apreciable {{ registro.profesor }},
+
+{{ registro.nombre|title }} {{ registro.paterno }} {{ registro.materno }} ha solicitado que usted escriba una carta de recomendación apoyando su participación en {{ evento }} que se llevará a cabo en el campus de la UNAM Morelia el 7 y 8 de noviembre de 2024.
+
+La información detallada puede consultarse en la página del evento:
+
+{{ url_evento }}
+
+Puede ingresar su recomendación como texto simple en la dirección de internet que indicamos abajo, o bien, puede mandarnos una carta firmada en formato pdf a través de la misma página.
+
+{{ url_carta_dev}}/{{ registro.slug }}/{{ registro.mail }}/recomendacion
+
+Dicha solicitud solamente puede ser considerada si cuenta con una recomendación, por eso le solicitamos que nos ayude escribiendo una recomendación corta a la brevedad posible. El periodo de recepción de recomendaciones termina el 1 de octubre de 2024.
+
+Le agradecemos de antemano por su tiempo.
+
+¡Saludos cordiales!
+
+El Comité Organizador
+{{ comite }}
