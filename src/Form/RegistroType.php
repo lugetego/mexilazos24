@@ -23,8 +23,8 @@ class RegistroType extends AbstractType
             ->add('materno')
             ->add('sexo', ChoiceType::class, [
                 'choices'  => [
-                    'Hombre' => 'Hombre',
-                    'Mujer' => 'Mujer',
+                    'Femenino' => 'Femenino',
+                    'Masculino' => 'Masculino',
                 ],
                 'placeholder' => 'Seleccionar',
                 'required'=>false,

@@ -24,12 +24,12 @@
 
 
         {% for registro in registros %}
-            {% if registro.sexo == 'Hombre' %}
+            {% if registro.sexo == 'Masculino' %}
                 {% set hombres = hombres + 1 %}
             {% endif %}
         {% endfor %}
         {% for registro in registros %}
-            {% if registro.sexo == 'Mujer' %}
+            {% if registro.sexo == 'Femenino' %}
                 {% set mujeres = mujeres + 1 %}
             {% endif %}
         {% endfor %}
@@ -77,10 +77,10 @@
     {% endif %}
     <div class="container-fluid">
         <button type="button" class="btn btn-light mb-5 ">
-            Mujeres <span class="badge bg-dark">{{ mujeres }}</span>
+            Femenino <span class="badge bg-dark">{{ mujeres }}</span>
         </button>
         <button type="button" class="btn btn-light mb-5 ">
-            Hombres <span class="badge bg-dark">{{ hombres }}</span>
+            Masculino <span class="badge bg-dark">{{ hombres }}</span>
         </button>
 
         <button type="button" class="btn btn-light mb-5 ">
