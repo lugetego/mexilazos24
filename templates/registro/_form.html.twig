@@ -200,7 +200,7 @@
             {{ form_row(form.resumen, {
                 label: 'Resumen de la contribución',
                 attr: {
-                    placeholder: 'Razones y motivos por las que desa asistir',
+                    placeholder: 'Resumen de la contribución',
                     style:'height: 150px;'
                 },
                 row_attr: {
@@ -209,6 +209,50 @@
             }) }}
         </div>
     </div>
+
+    <hr>
+    <p class="h4">{{ evento }}</p>
+    <div class="row pt-2">
+        <div class="col col-md-4 col-sm-12">
+            {{ form_row(form.beca, {
+                label: 'Beca',
+                attr: {
+                    placeholder: 'Beca'
+                },
+                row_attr: {
+                    class: 'form-floating'
+                }
+            }) }}
+        </div>
+        <div class="col col-md-8 col-sm-8" >
+            {{ form_row(form.restricciones, {
+                label: 'Mencionar si tienes alguna restricción alimenticia',
+                attr: {
+                    placeholder: 'Mencionar si tienes alguna restricción alimenticia',
+                    style:'height: 80px;'
+                },
+                row_attr: {
+                    class: 'form-floating',
+                }
+            }) }}
+        </div>
+    </div>
+    <div class="row pt-2">
+
+        <div class="col col-md-12 col-sm-12" >
+            {{ form_row(form.infoadicional, {
+                label: 'Comentarios o información adicional que desee proporcionar',
+                attr: {
+                    placeholder: 'Comentarios o información adicional que desee proporcionar',
+                    style:'height: 80px;'
+                },
+                row_attr: {
+                    class: 'form-floating',
+                }
+            }) }}
+        </div>
+    </div>
+
     <hr>
     <p class="h4">Recomendación en caso de solicitar apoyo</p>
     <div class="row pt-3">
@@ -260,47 +304,6 @@
         </div>
     </div>
     <hr>
-    <p class="h4">{{ evento }}</p>
-    <div class="row pt-2">
-        <div class="col col-md-4 col-sm-12">
-            {{ form_row(form.beca, {
-                label: 'Beca',
-                attr: {
-                    placeholder: 'Beca'
-                },
-                row_attr: {
-                    class: 'form-floating'
-                }
-            }) }}
-        </div>
-        <div class="col col-md-8 col-sm-8" >
-            {{ form_row(form.restricciones, {
-                label: 'Mencionar si tienes alguna restricción alimenticia',
-                attr: {
-                    placeholder: 'Mencionar si tienes alguna restricción alimenticia',
-                    style:'height: 80px;'
-                },
-                row_attr: {
-                    class: 'form-floating',
-                }
-            }) }}
-        </div>
-        <div class="row pt-2">
-
-            <div class="col col-md-12 col-sm-12" >
-                {{ form_row(form.infoadicional, {
-                    label: 'Comentarios o información adicional que desee proporcionar',
-                    attr: {
-                        placeholder: 'Comentarios o información adicional que desee proporcionar',
-                        style:'height: 80px;'
-                    },
-                    row_attr: {
-                        class: 'form-floating',
-                    }
-                }) }}
-            </div>
-        </div>
-    </div>
     <div class="d-grid gap-2 pt-3 mb-2 col-3 mx-auto">
         <button class="btn btn-dark"><h5> <i class="fa-regular fa-paper-plane"></i> {{ button_label|default('Enviar') }}</h5></button>
     </div>

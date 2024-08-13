@@ -10,6 +10,8 @@ use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
+
 use Vich\UploaderBundle\Form\Type\VichFileType;
 
 
@@ -52,10 +54,15 @@ class RegistroType extends AbstractType
                 ],
                 'placeholder' => 'Seleccionar',
             ])
-            ->add('profesor')
-            ->add('univprofesor')
+            ->add('profesor', TextType::class,array(
+                'required' => false
+            ))
+            ->add('univprofesor',TextType::class,array(
+                'required' => false
+            ))
             ->add('mailprofesor', RepeatedType::class, [
                 'invalid_message' => 'Los correos no son iguales',
+                'required'=>false,
                 'first_options'  => ['label' => 'Correo'],
                 'second_options' => ['label' => 'Confirma correo']])
             ->add('confirmado')

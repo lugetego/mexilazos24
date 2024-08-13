@@ -63,15 +63,18 @@ class RegistroController extends AbstractController
 
             $mailer->send($message);
 
-            // Mail
-            $message = (new \Swift_Message($nombre_evento.' - Carta de recomendación'))
-                ->setFrom('webmaster@matmor.unam.mx')
-                ->setTo(array($registro->getMailprofesor() ))
-                //->setTo('gerardo@matmor.unam.mx')
-                ->setBcc(array('gerardo@matmor.unam.mx'))
-                ->setBody($this->renderView('mails/solcarta.txt.twig', array('registro' => $registro)));
+            if ($registro->getMailprofesor() != null) {
 
-            $mailer->send($message);
+                // Mail
+                $message = (new \Swift_Message($nombre_evento . ' - Carta de recomendación'))
+                    ->setFrom('webmaster@matmor.unam.mx')
+                    ->setTo(array($registro->getMailprofesor()))
+                    //->setTo('gerardo@matmor.unam.mx')
+                    ->setBcc(array('gerardo@matmor.unam.mx'))
+                    ->setBody($this->renderView('mails/solcarta.txt.twig', array('registro' => $registro)));
+
+                $mailer->send($message);
+            }
 
 
             //return $this->redirectToRoute('app_registro_index', [], Response::HTTP_SEE_OTHER);
@@ -161,16 +164,17 @@ class RegistroController extends AbstractController
 
             $registroRepository->add($registro, true);
 
-            // Mail
-            $message = (new \Swift_Message($nombre_evento.' - Carta de recomendación'))
-                ->setFrom('webmaster@matmor.unam.mx')
-                ->setTo(array($registro->getMailprofesor() ))
-                //->setTo('gerardo@matmor.unam.mx')
-                ->setBcc(array('gerardo@matmor.unam.mx'))
-                ->setBody($this->renderView('mails/confirmacion_carta.txt.twig', array('registro' => $registro)));
+            if ($registro->getMailprofesor() != null){
+                // Mail
+                $message = (new \Swift_Message($nombre_evento . ' - Carta de recomendación'))
+                    ->setFrom('webmaster@matmor.unam.mx')
+                    ->setTo(array($registro->getMailprofesor()))
+                    //->setTo('gerardo@matmor.unam.mx')
+                    ->setBcc(array('gerardo@matmor.unam.mx'))
+                    ->setBody($this->renderView('mails/confirmacion_carta.txt.twig', array('registro' => $registro)));
 
-            $mailer->send($message);
-
+                $mailer->send($message);
+            }
 //            return $this->redirectToRoute('app_registro_index', [], Response::HTTP_SEE_OTHER);
             return $this->render('registro/confirmacion_carta.html.twig', [
                 'registro' => $registro,
