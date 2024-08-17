@@ -46,8 +46,11 @@ class RegistroType extends AbstractType
                 ],
                 'placeholder' => 'Seleccionar',
             ])
-            ->add('titulo')
+            ->add('titulo', TextType::class,array(
+                'required' => false
+            ))
             ->add('contribucion',ChoiceType::class, [
+                'required'=>false,
                 'choices'  => [
                     'Plática'=>'Plática',
                     'Cartel'=>'Cartel',
@@ -80,6 +83,7 @@ class RegistroType extends AbstractType
             ->add('aceptado')
             ->add('resumen', TextareaType::class,array(
                 'label'=>'Razones por las que desa asistir',
+                'required'=>false,
             ))
             ->add('comentarios', TextareaType::class,array(
                 'required' => false,

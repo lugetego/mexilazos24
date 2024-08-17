@@ -72,20 +72,17 @@ class Registro
     private $status;
 
     /**
-     * @ORM\Column(type="string", length=10)
-     * @Assert\NotBlank()
+     * @ORM\Column(type="string", length=10, nullable=true)
      */
     private $contribucion;
 
     /**
-     * @ORM\Column(type="string", length=1000)
-     * @Assert\NotBlank()
+     * @ORM\Column(type="string", length=1000, nullable=true)
      */
     private $titulo;
 
     /**
-     * @ORM\Column(type="text")
-     * @Assert\NotBlank()
+     * @ORM\Column(type="text", nullable=true)
      */
     private $resumen;
 
