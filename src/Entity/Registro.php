@@ -109,6 +109,11 @@ class Registro
     private $confirmado;
 
     /**
+     * @ORM\Column(type="boolean", nullable=true)
+     */
+    private $remoto;
+
+    /**
      * @ORM\Column(type="text", nullable=true)
      */
     private $restricciones;
@@ -189,6 +194,18 @@ class Registro
      * @ORM\Column(type="datetime", nullable=true)
      */
     private $modified;
+
+    public function isRemoto(): ?bool
+    {
+        return $this->remoto;
+    }
+
+    public function setRemoto(?bool $remoto): self
+    {
+        $this->remoto = $remoto;
+
+        return $this;
+    }
 
     public function getId(): ?int
     {

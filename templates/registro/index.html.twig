@@ -21,7 +21,8 @@
         {% set cartel = 0 %}
         {% set aceptados = 0 %}
         {% set confirmados = 0 %}
-
+        {% set virtuales = 0 %}
+        {% set presenciales = 0 %}
 
         {% for registro in registros %}
             {% if registro.sexo == 'Masculino' %}
@@ -74,6 +75,11 @@
                 {% set confirmados = confirmados + 1 %}
             {% endif %}
         {% endfor %}
+        {% for registro in registros %}
+            {% if registro.remoto == true %}
+                {% set virtuales = virtuales + 1 %}
+            {% endif %}
+        {% endfor %}
     {% endif %}
     <div class="container-fluid">
         <button type="button" class="btn btn-light mb-5 ">
@@ -101,6 +107,13 @@
         </button>
         <button type="button" class="btn btn-light mb-5 ">
             Recomendados <span class="badge bg-dark">{{ recomendados }}</span>
+        </button>
+        <button type="button" class="btn btn-light mb-5 ">
+            Virtuales <span class="badge bg-dark">{{ virtuales }}</span>
+        </button>
+        {% set presenciales = registros|length - virtuales %}
+        <button type="button" class="btn btn-light mb-5 ">
+            Presenciales <span class="badge bg-dark">{{ presenciales }}</span>
         </button>
         <button type="button" class="btn btn-light mb-5 ">
             Aceptados <span class="badge bg-dark">{{ aceptados }}</span>
@@ -153,6 +166,7 @@
             <th>Estatus</th>
             <th>Contribución</th>
             <th>Profesor</th>
+            <th>Asistencia</th>
             <th>Restricciones alim.</th>
             <th>Apoyo</th>
             <th>Recomendado</th>
@@ -171,6 +185,13 @@
                 <td>{{ registro.profesor }}</td>
                 {#                    <td>{{ registro.confirmado ? 'Yes' : 'No' }}</td>#}
 {#                <td>{{ registro.vegetariano ? 'Yes' : 'No' }}</td>#}
+                <td class="text-center">
+                    {% if registro.remoto == true %}
+                        <span class="badge bg-primary"> {{ "Virtual" }}</span>
+                    {% else %}
+                        <span class="badge bg-secondary"> {{"Presencial"}}</span>
+                    {% endif %}
+                </td>
                 <td>{{ registro.restricciones }}</td>
 
                 <td>{{ registro.beca }}</td>
@@ -196,7 +217,6 @@
         {% endfor %}
         </tbody>
     </table>
-    </div>
 {% endblock %}
 
 {% block javascripts %}

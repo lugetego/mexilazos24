@@ -39,6 +39,8 @@ class RegistroController extends AbstractController
         $form->remove('comentarios');
         $form->remove('recomendacion');
         $form->remove('cartaFile');
+        $form->remove('remoto');
+
 
         $twigglobals = $this->get("twig")->getGlobals();
         $nombre_evento = $twigglobals["evento"];
@@ -148,6 +150,8 @@ class RegistroController extends AbstractController
         $form->remove('resumen');
         $form->remove('infoadicional');
         $form->remove('otroestatus');
+        $form->remove('remoto');
+
 
 
 

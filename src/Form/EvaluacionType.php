@@ -18,6 +18,7 @@ class EvaluacionType extends AbstractType
 
             ->add('aceptado')
             ->add('confirmado')
+            ->add('remoto',null,['label'=>"Virtual"])
 
             ->add('comentarios', TextareaType::class,array(
                 'required' => false,
